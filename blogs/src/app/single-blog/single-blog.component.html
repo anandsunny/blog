@@ -1,0 +1,36 @@
+<!-- blog -->
+<div class="row">
+  <div class="col-md-12">
+      <h1>{{ blog?.title }}</h1>
+      
+      <!-- row -->
+      <div class="row">
+        <div class="col-sm-6">
+          <p>{{ blog?.created_at | date:'dd MMM yyy hh:mm aaa' }}</p>
+        </div>
+        <div class="col-sm-6 featured_icons_bx">
+          <span>
+            <button mat-icon-button color="primary" class="featured_icons">
+              <mat-icon>favorite</mat-icon>
+            </button>{{ blog?.likes }}
+          </span>
+          <span>
+            <button mat-icon-button color="accent" class="featured_icons">
+              <mat-icon>remove_red_eye</mat-icon>
+            </button>{{ blog?.views }}
+          </span>
+        </div>
+      </div>
+      <!-- row -->
+      <hr>
+    <img [src]="blog?.image" alt="" class="img-responsive">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+
+    {{ blog?.description }}
+    
+  </div>
+</div>
+<!-- blog -->

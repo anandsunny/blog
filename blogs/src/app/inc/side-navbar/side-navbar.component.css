@@ -1,0 +1,9 @@
+img {
+    height: 77px;
+}
+
+mat-grid-list { margin: 10px 0px; }
+p { font-size: 13px; font-weight: bolder }
+
+.row { margin: 10px 0; }
+p.date { color: #aba4a4 }

@@ -1,0 +1,120 @@
+
+
+
+<drag-scroll #nav id="drag_scroll" [drag-scroll-disabled]="disabled" [scrollbar-hidden]="true">
+  <mat-card drag-scroll-item *ngFor="let blog of blogs" class="drag_items">
+      <img at-card-image  [src]="blog.image" class="ds_items" />
+      <mat-card-content>
+        <div class="drag_scroll_body">
+          {{ blog.title }}
+          
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="row">
+          <div class="col-sm-6">
+            <p class="ds_date"><mat-icon>calendar_today</mat-icon>{{ blog.created_at | date:'dd MMM' }}</p>
+          </div>
+          <div class="col-sm-6">
+            <button mat-icon-button class="view"><mat-icon>import_contacts</mat-icon></button>
+          </div>
+        </div>
+        
+      
+      </mat-card-actions>
+  </mat-card>
+ 
+</drag-scroll>
+<div class="row" id="scroll_btn_div">
+  <div class="col-md-12" >
+    <button mat-icon-button (click)="moveLeft()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <button mat-icon-button (click)="moveRight()">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+</div>
+
+
+
+
+<h2><mat-icon>loyalty</mat-icon> WEEKLY FEATURED POSTS</h2>
+<hr>
+
+
+
+<!-- customize -->
+<!-- <div class="blogs" *ngFor="let blog of blogs | paginate: { itemsPerPage: 5, currentPage: p}">
+  <div class="row">
+    <div class="col-xs-3">
+      <img src="assets/009.jpg" alt="" class="profile_img" />
+    </div>
+    <div class="col-xs-9">
+      <h4>Anand Panwar</h4>
+      <span>3 Min </span>
+    </div>
+  </div>
+  
+  <mat-card>
+    <div class="innter">
+      <div class="row">
+        <div class="col-sm-12">
+          <h3>{{ blog.title }}</h3>
+          <hr>
+          <img [src]="blog.image" alt="" class="img-circle">
+          {{ blog.description }}
+        </div>
+      </div>
+    </div>
+  </mat-card>
+  <div class="row">
+    <div class="col-xs-6">
+      <button (click)="reachSingleBlog(blog._id)" mat-raised-button color="primary">Read More</button>
+    </div>
+    <div class="col-xs-6">
+      <button mat-icon-button color="primary" class="featured_icons">
+        <mat-icon>favorite</mat-icon>
+      </button>12
+
+      <button mat-icon-button color="accent" class="featured_icons">
+        <mat-icon>remove_red_eye</mat-icon>
+      </button>50
+    </div>
+  </div>
+  <hr>
+</div> -->
+
+<!-- blog -->
+<div class="row blog_div" *ngFor="let blog of blogs | paginate: { itemsPerPage: 5, currentPage: p}">
+  <div class="col-md-4">
+    <img [src]="blog.image" alt="image" class="img-thumbnail blog_img">
+  </div>
+  <div class="col-md-8">
+    <h3>{{ blog.title }}</h3>
+    <p>{{ blog.created_at | date: 'dd MMM yyyy hh:mm aaa' }}</p>
+    <p>{{ blog.description }}</p>
+    
+    <div class="row">
+      <div class="col-sm-6">
+        <button (click)="reachSingleBlog(blog._id)" mat-raised-button color="primary">Read More</button>
+      </div>
+      <div class="col-sm-6">
+        <button mat-icon-button color="primary" class="featured_icons">
+          <mat-icon>favorite</mat-icon>
+        </button>12
+
+        <button mat-icon-button color="accent" class="featured_icons">
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>50
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>
+<!-- blog -->
+
+<!-- pagination controls -->
+<pagination-controls (pageChange)="p = $event" #paginate ></pagination-controls>
+<!-- pagination controls -->
+
