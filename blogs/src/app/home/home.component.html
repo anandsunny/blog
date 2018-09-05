@@ -1,42 +1,9 @@
 
-
-
-<drag-scroll #nav id="drag_scroll" [drag-scroll-disabled]="disabled" [scrollbar-hidden]="true">
-  <mat-card drag-scroll-item *ngFor="let blog of blogs" class="drag_items">
-      <img at-card-image  [src]="blog.image" class="ds_items" />
-      <mat-card-content>
-        <div class="drag_scroll_body">
-          {{ blog.title }}
-          
-        </div>
-      </mat-card-content>
-      <mat-card-actions>
-        <div class="row">
-          <div class="col-sm-6">
-            <p class="ds_date"><mat-icon>calendar_today</mat-icon>{{ blog.created_at | date:'dd MMM' }}</p>
-          </div>
-          <div class="col-sm-6">
-            <button mat-icon-button class="view"><mat-icon>import_contacts</mat-icon></button>
-          </div>
-        </div>
-        
-      
-      </mat-card-actions>
-  </mat-card>
- 
-</drag-scroll>
-<div class="row" id="scroll_btn_div">
-  <div class="col-md-12" >
-    <button mat-icon-button (click)="moveLeft()">
-      <mat-icon>keyboard_arrow_left</mat-icon>
-    </button>
-    <button mat-icon-button (click)="moveRight()">
-      <mat-icon>keyboard_arrow_right</mat-icon>
-    </button>
-  </div>
+<div class="row">
+  <div class="col-sm"></div>
+  <div class="col-sm"></div>
+  <div class="col-sm"></div>
 </div>
-
-
 
 
 <h2><mat-icon>loyalty</mat-icon> WEEKLY FEATURED POSTS</h2>

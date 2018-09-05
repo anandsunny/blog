@@ -26,7 +26,8 @@ import { SingleBlogComponent } from './single-blog/single-blog.component';
 
 import { HttpClientModule } from '@angular/common/http'
 import { DragScrollModule } from 'ngx-drag-scroll'
-import { NgxPaginationModule } from 'ngx-pagination'
+import { NgxPaginationModule } from 'ngx-pagination';
+import { LoginComponent } from './login/login.component'
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NgxPaginationModule } from 'ngx-pagination'
     FooterComponent,
     NavbarComponent,
     SideNavbarComponent,
-    SingleBlogComponent
+    SingleBlogComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
