@@ -8,6 +8,10 @@ import { VideoComponent } from './video/video.component';
 import { HeaderComponent } from './inc/header/header.component';
 import { FooterComponent } from './inc/footer/footer.component';
 import { NavbarComponent } from './inc/header/navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
+import { SliderComponent } from './home/slider/slider.component';
+import { SideNavbarComponent } from './inc/side-navbar/side-navbar.component';
+import { SingleBlogComponent } from './single-blog/single-blog.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { 
@@ -18,16 +22,12 @@ import {
   MatIconModule,
   MatBadgeModule,
   MatCardModule
-} from '@angular/material'
+} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
-import { SideNavbarComponent } from './inc/side-navbar/side-navbar.component';
-import { SingleBlogComponent } from './single-blog/single-blog.component';
-
-import { HttpClientModule } from '@angular/common/http'
-import { DragScrollModule } from 'ngx-drag-scroll'
+import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { LoginComponent } from './login/login.component'
+import {SlideshowModule} from 'ng-simple-slideshow';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,8 @@ import { LoginComponent } from './login/login.component'
     NavbarComponent,
     SideNavbarComponent,
     SingleBlogComponent,
-    LoginComponent
+    LoginComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
@@ -54,8 +55,8 @@ import { LoginComponent } from './login/login.component'
     MatBadgeModule,
     HttpClientModule,
     MatCardModule,
-    DragScrollModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    SlideshowModule
   ],
   providers: [],
   bootstrap: [AppComponent]

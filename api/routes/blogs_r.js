@@ -39,7 +39,7 @@ router.post('/', uploads.single('img'), blogsController.createBlog );
 
 // get blog
 router.get('/:blogId', blogsController.getBlog);
-// get blog
+
 
 
 

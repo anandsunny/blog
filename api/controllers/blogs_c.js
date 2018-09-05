@@ -7,6 +7,7 @@ exports.getBlogs = (req, res, next) => {
     .exec()
     .then(docs => {
         const responce = {
+            success: true,
             count: docs.length,
             blogs: docs.map(doc => {
                 return {
@@ -22,6 +23,7 @@ exports.getBlogs = (req, res, next) => {
     })
     .catch(err =>{
         res.status(500).json({
+            success: false,
             error: err
         })
     })
@@ -59,6 +61,7 @@ exports.getBlog = (req, res, next) => {
     .exec()
     .then(result => {
         res.status(201).json({
+            success: true,
             message: "get single blog",
             blog: {
                 _id: result._id,
@@ -73,10 +76,14 @@ exports.getBlog = (req, res, next) => {
     })
     .catch(err => {
         res.status(404).json({
+            success: false,
             error: err
         })
     })
 }
 // get blog
+
+
+
 
 
