@@ -3,30 +3,24 @@ const blogsModel = require('./../models/blogs_m')
 
 // get blogs
 exports.getBlogs = (req, res, next) => {
+
     blogsModel.find()
-    .exec()
-    .then(docs => {
-        const responce = {
-            success: true,
-            count: docs.length,
-            blogs: docs.map(doc => {
-                return {
-                    _id: doc._id,
-                    title : doc.title,
-                    description: doc.description,
-                    image: 'http://localhost:3000/' + doc.img,
-                    created_at: doc.created_at
-                }
+        .exec()
+        .then((docs) => {
+            res.json({
+                success: true,
+                message: 'get all blogs',
+                count: docs.length,
+                blogs: docs
             })
-        }
-        res.status(200).json(responce);
-    })
-    .catch(err =>{
-        res.status(500).json({
-            success: false,
-            error: err
         })
-    })
+        .catch(err => {
+            res.json({
+                success: false,
+                message: 'get all blogs error',
+                errors: err
+            })
+        })
 }
 // get blogs
 
@@ -36,21 +30,42 @@ exports.createBlog = (req, res, next) => {
         _id: mongoose.Types.ObjectId(),
         title: req.body.title,
         description: req.body.description,
-        created_at: Date.now(),
-        img: req.file.path,
+        createdAt: Date.now(),
+        bannerImg: 'http://localhost:3000/' + req.file.path,
+        createdBy: req.body.createdBy
     });
+    console.log(req.file);
     blog.save()
-    .then(result => {
-        res.status(201).json({
-            message: "blog created."
+        .then(result => {
+            res.json({
+                success: true,
+                message: 'blog created',
+                blog: result
+            })
         })
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json({
-            mgs: err
+        .catch(err => {
+            let message = '';
+            if (err.errors) {
+
+                if (err.errors.title)
+                    message = err.errors.title.message
+                else if (err.errors.description)
+                    message = err.errors.description.message
+                else if (err.errors.createdAt)
+                    message = err.errors.createdAt.message
+                else if (err.errors.createdBy)
+                    message = err.errors.createdBy.message
+                else
+                    message = 'there are some errors'
+
+            }
+            res.json({
+                success: false,
+                message: message,
+                error: err
+            })
+
         })
-    })
 }
 // create blog
 

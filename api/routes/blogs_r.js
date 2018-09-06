@@ -35,10 +35,10 @@ const uploads = multer({
 router.get('/', blogsController.getBlogs);
 
 // create blog
-router.post('/', uploads.single('img'), blogsController.createBlog );
+router.post('/', uploads.single('bannerImg'), blogsController.createBlog);
 
 // get blog
-router.get('/:blogId', blogsController.getBlog);
+// router.get('/:blogId', blogsController.getBlog);
 
 
 
