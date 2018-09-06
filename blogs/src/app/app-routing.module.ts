@@ -11,7 +11,7 @@ const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'tech', component: TechComponent},
     {path: 'video', component: VideoComponent},
-    {path: 'single-blog/:blogId', component: SingleBlogComponent},
+    // {path: 'single-blog/:blogId', component: SingleBlogComponent},
     {path: 'login', component: LoginComponent},
     {path: '', redirectTo: 'home', pathMatch: 'full'}
 ]

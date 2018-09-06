@@ -13,19 +13,10 @@ import { DragScrollComponent } from 'ngx-drag-scroll'
 export class HomeComponent implements OnInit, AfterViewInit {
 
   blogs: Blogs[] = [];
+  threeBlogs: Blogs[] = [];
   @ViewChild('nav', {read: DragScrollComponent}) ds: DragScrollComponent;
   @ViewChild('paginate') paginate;
-  imageSources: string[] = [
-    'assets/009.jpg',
-    'assets/009.jpg',
-    'assets/009.jpg',
-    'assets/009.jpg',
-    'assets/009.jpg',
-    'assets/009.jpg',
-    'assets/009.jpg',
-    'assets/009.jpg',
-    'assets/009.jpg'
-  ]
+
   constructor(private _router: Router,
           private _blogService: BlogService) { }
 
@@ -33,13 +24,23 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.getBlogs();
   }
   ngAfterViewInit() {
-    console.log(this.paginate)
+    // console.log(this.paginate)
   }
   getBlogs() {
-    this._blogService.getBlogs().subscribe((datas:any) => {
-      datas.blogs.forEach(blog => {
-        this.blogs.push(blog);
-      });
+    this._blogService.getBlogs().subscribe((docs:any) => {
+      if(docs.success) {
+        this.blogs = docs.blogs;
+        if(docs.count > 3) {
+          for(let i=0; i <= docs.count; i++ ) {
+            if(i >= 3)  break;
+            this.threeBlogs.push(docs.blogs[i]);
+          }
+        } else {
+          this.threeBlogs = docs.blogs;
+        }
+        
+        console.log(this.threeBlogs)
+      }
     });
   }
 
