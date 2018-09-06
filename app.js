@@ -18,7 +18,6 @@ mongoose.connect("mongodb://localhost:27017/blogger")
 app.use(cors());
 mongoose.Promise = global.Promise;
 app.use(morgan('dev'));
-app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
@@ -30,7 +29,7 @@ app.use(bodyParser.json());
 //             return res.status(200).json({});
 //     }
 // })
-// app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/'));
 
 app.use('/blogs', blogsRouter);
 

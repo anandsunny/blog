@@ -4,28 +4,13 @@
   <br><br>
   <app-slider></app-slider>
   <br><br>
-  <div class="row">
-    <div class="col-sm threeB" *ngFor="let threeB of threeBlogs">
-      <img [src]="threeB.bannerImg" alt="image" class="threeBImg" />
-      <div class="fadder">
-        <div class="text">
-          <p>
-            <span>{{ threeB.createdAt|date:'d MMM, y' }}</span>
-            <span><i class="glyphicon glyphicon-heart-empty"></i>{{ threeB.likes }}</span>
-            <span><i class="glyphicon glyphicon-comment"></i>{{ threeB.comment.length }}</span>
-          </p>
-          <h3>{{threeB.title}}</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- <h2>
+  <h2>
     <mat-icon>loyalty</mat-icon> WEEKLY FEATURED POSTS</h2>
-  <hr> -->
+  <hr>
 
 
   <!-- blog -->
-  <!-- <div class="row blog_div" *ngFor="let blog of blogs | paginate: { itemsPerPage: 5, currentPage: p}">
+  <div class="row blog_div" *ngFor="let blog of blogs | paginate: { itemsPerPage: 5, currentPage: p}">
     <div class="col-md-4">
       <img [src]="blog.image" alt="image" class="img-thumbnail blog_img">
     </div>
@@ -50,11 +35,11 @@
       </div>
     </div>
     <hr>
-  </div> -->
+  </div>
   <!-- blog -->
 
   <!-- pagination controls -->
-  <!-- <pagination-controls (pageChange)="p = $event" #paginate></pagination-controls> -->
+  <pagination-controls (pageChange)="p = $event" #paginate></pagination-controls>
   <!-- pagination controls -->
 </div>
 
