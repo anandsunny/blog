@@ -1,6 +1,5 @@
-<<<<<<< HEAD
-=======
-.threeB { position: relative; margin: 10px; padding: 0; height: 450px; }
+
+.threeB { position: relative; margin: 10px; padding: 0; height: 400px; }
 .threeB .threeBImg { width: 100% !important; height: 100%; }
 .threeB .fadder {
     position: absolute;
@@ -29,6 +28,5 @@
     font-size: 17px;
 }
 
->>>>>>> 853b1a5... create blog api and show blogs at home page
 
 
