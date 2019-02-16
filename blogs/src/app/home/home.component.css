@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 .threeB { position: relative; margin: 10px; padding: 0; height: 450px; }
 .threeB .threeBImg { width: 100% !important; height: 100%; }
 .threeB .fadder {
@@ -28,7 +27,26 @@
     padding: 0 10px;
     font-size: 17px;
 }
+.blogs_bx_gap { margin-top: 30px; }
+.features{ color: #b3b3b3; font-size: 18px; padding: 14px 0 2px;}
+.features span.cmnts { padding: 0px 25px; }
+#blogs .row .col-6 { margin-top: 36px };
+#blogs h1 {margin-bottom: 0; font-size: 32px}
+#blogs h4 {
+    font-size: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid;
+}
+#blogs .row .col-6 .card { height: 400px; transition: all .5s }
+#blogs .row .col-6 img {height: 66%;}
+#blogs .row .col-6 .card:hover{box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);}
 
->>>>>>> 853b1a5... create blog api and show blogs at home page
+/* sidebar css */
+#blogs #sideBarBlogs { padding-left: 5em  }
+#blogs #sideBarBlogs .row { margin: 20px 0;}
+#blogs #sideBarBlogs .row div {padding: 0;}
+#blogs #sideBarBlogs .row div.blogBody{padding: 0 16px;}
+#blogs #sideBarBlogs .row .featured { color: #E0E0DC }
 
+#blogs #sideBarBlogs #categories .list-group-item { padding: 1.75rem 1.25rem }
 

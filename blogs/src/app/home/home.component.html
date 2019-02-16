@@ -1,9 +1,11 @@
 <app-header></app-header>
 
 <div class="container">
-  <br><br>
+  <br>
+  <br>
   <app-slider></app-slider>
-  <br><br>
+  <br>
+  <br>
   <div class="row">
     <div class="col-sm threeB" *ngFor="let threeB of threeBlogs">
       <img [src]="threeB.bannerImg" alt="image" class="threeBImg" />
@@ -11,13 +13,88 @@
         <div class="text">
           <p>
             <span>{{ threeB.createdAt|date:'d MMM, y' }}</span>
-            <span><i class="glyphicon glyphicon-heart-empty"></i>{{ threeB.likes }}</span>
-            <span><i class="glyphicon glyphicon-comment"></i>{{ threeB.comment.length }}</span>
+            <span>
+              <i class="glyphicon glyphicon-heart"></i>{{ threeB.likes }}</span>
+            <span>
+              <i class="glyphicon glyphicon-comment"></i>{{ threeB.comment.length }}</span>
           </p>
           <h3>{{threeB.title}}</h3>
         </div>
       </div>
     </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+  <div class="row" id="blogs">
+    <div class="col-8">
+      <h1>Featured Categorie's</h1>
+      <div class="row">
+        <div class="col-6" *ngFor="let blog of blogs | paginate: { itemsPerPage: 5, currentPage: p}">
+          <div class="card">
+            <img class="card-img-top" [src]="blog.bannerImg" alt="Card image cap">
+            <div class="card-body">
+              <p class="features">
+                <span class="date">{{blog.createdAt|date:'d MMM, y'}}</span>
+                <span class="cmnts">
+                  <i class="glyphicon glyphicon-comment"></i> {{blog.comment.length}}</span>
+                <span>
+                  <i class="glyphicon glyphicon-heart"></i> {{blog.likes}}</span>
+              </p>
+              <h2>{{blog.title}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- pagination controls -->
+      <pagination-controls (pageChange)="p = $event" #paginate style="font-size: 25px; margin: 1px;"></pagination-controls>
+      <!-- pagination controls -->
+    </div>
+    <div class="col-4" id="sideBarBlogs">
+      <br>
+      <br>
+      <br>
+      <br>
+      <h4>Popular Post's</h4>
+      <div class="row" *ngFor="let blog of blogs;">
+        <div class="col-sm-4">
+          <img [src]="blog.bannerImg" alt="image" width="100%" />
+        </div>
+        <div class="col-sm-8 blogBody">
+          <h3>{{ blog.title }}</h3>
+          <p class="featured">
+            <span>{{blog.createdAt|date:'d MMM, y'}}</span>
+            <span>{{blog.likes}}</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- sidebar categories -->
+      <h4>Categories</h4>
+      <div class="row" id="categories">
+        <div class="col">
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Cras justo odio
+              <span class="badge badge-primary badge-pill">14</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Dapibus ac facilisis in
+              <span class="badge badge-primary badge-pill">2</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Morbi leo risus
+              <span class="badge badge-primary badge-pill">1</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+
   </div>
   <!-- <h2>
     <mat-icon>loyalty</mat-icon> WEEKLY FEATURED POSTS</h2>
